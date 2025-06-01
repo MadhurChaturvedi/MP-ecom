@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Card from "../Components/Card.jsx";
 import Simmer from "../utils/Simmer.jsx";
+import  {Link} from "react-router";
+
 export default function Body() {
   const [cardData, setCardData] = useState([]);
   const [search, setSearch] = useState("");
@@ -10,6 +12,8 @@ export default function Body() {
   const fetchData = async () => {
     const productResponse = await fetch("https://fakestoreapi.com/products");
     const ResJson = await productResponse.json();
+    // console.log(ResJson);
+    
 
     // console.log(ResJson);
     if (ResJson) {
@@ -100,7 +104,7 @@ export default function Body() {
         ) : (
           <>
             {filteredData.map((item) => (
-              <Card SetData={item} key={item.id} />
+             <Link to={`/products/${item.id}`} key={item.id}><Card SetData={item} /></Link>
             ))}
           </>
         )}

@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import About from "./page/About.jsx";
 import Contact from "./page/Contact.jsx";
 import Error from "./page/Error.jsx";
+import Singleproduct from "./Components/SingleProduct.jsx";
 
 const AppLayout = () => {
   return (
@@ -37,6 +38,10 @@ const appRouter = createBrowserRouter([
         path: "/",
         element: <Body />,
       },
+      {
+        path: "/products/:id",
+        element: <Singleproduct />,
+      }
     ],
   },
 ]);
